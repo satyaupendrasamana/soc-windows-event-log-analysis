@@ -1,0 +1,45 @@
+EVENT ID 4697 — A service was installed in the system
+Host: ANNAYA_THAMMUDU
+Time: 22-07-2026 15:49:21
+SEVERITY: CRITICAL (Persistence)
+
+------------------------------------------------------------
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          22-07-2026 15:49:21
+Event ID:      4697
+Task Category: Security System Extension
+Keywords:      Audit Success
+Computer:      Annaya_Thammudu
+
+Subject:
+	Security ID:		S-1-5-21-1470534791-136481979-151472823-1001
+	Account Name:		shash
+	Account Domain:		ANNAYA_THAMMUDU
+
+Service Information:
+	Service Name: 		WinUpdateHelper
+	Service File Name:	C:\Windows\System32\svchost.exe -k netsvcs
+	Service Type: 		0x10
+	Service Start Type:	3 (Demand start)
+	Service Account: 		LocalSystem
+
+------------------------------------------------------------
+ANALYST NOTE:
+A new service, "WinUpdateHelper", was installed running as LocalSystem
+(the highest-privilege account on Windows). The name is deliberately
+disguised to resemble a legitimate Windows Update component. This
+represents the persistence stage of the attack chain — a mechanism
+designed to preserve attacker access even if the original compromised
+account's password is later changed.
+
+CONFIGURATION GAP DISCOVERED DURING THIS INVESTIGATION:
+This event initially did NOT appear in the Security log after the service
+was first created. Root cause: the "Security System Extension" audit
+subcategory was set to "No Auditing" by default on this machine
+(confirmed via `auditpol /get /subcategory:"Security System Extension"`).
+It was enabled via:
+    auditpol /set /subcategory:"Security System Extension" /success:enable /failure:enable
+after which the service was recreated and Event 4697 was correctly logged.
+This is a real, generalizable finding: default Windows audit policy does
+not capture every security-relevant event out of the box.

@@ -1,0 +1,31 @@
+EVENT ID 4625 — An account failed to log on (x9 occurrences)
+Host: ANNAYA_THAMMUDU
+Time Range: 22-07-2026 14:39:36 -> 14:42:11
+
+Sample entry:
+------------------------------------------------------------
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          22-07-2026 14:39:36 (earliest of 9 attempts; last at 14:42:11)
+Event ID:      4625
+Task Category: Logon
+Keywords:      Audit Failure
+Computer:      Annaya_Thammudu
+
+Account For Which Logon Failed:
+	Account Name:		testuser1
+	Account Domain:		Annaya_Thammudu
+
+Logon Type:			2 (Interactive)
+
+Network Information:
+	Source Network Address:	127.0.0.1
+	Source Port:		0
+
+------------------------------------------------------------
+ANALYST NOTE:
+9 failed logon attempts against "testuser1" occurred within a ~2.5 minute
+window (14:39:36 - 14:42:11). The account's configured lockout threshold
+(confirmed via `net accounts`) was 10 attempts, so this simulation stopped
+one attempt short of triggering a full account lockout (Event 4740).
+This pattern is consistent with a brute-force logon attempt.

@@ -1,0 +1,42 @@
+EVENT ID 4624 — An account was successfully logged on
+Host: ANNAYA_THAMMUDU
+Time: 22-07-2026 14:42:32
+
+------------------------------------------------------------
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          22-07-2026 14:42:32
+Event ID:      4624
+Task Category: Logon
+Keywords:      Audit Success
+Computer:      Annaya_Thammudu
+
+Subject:
+	Security ID:		SYSTEM
+	Account Name:		ANNAYA_THAMMUDU$
+	Account Domain:		WORKGROUP
+
+Logon Information:
+	Logon Type:		2 (Interactive)
+
+New Logon:
+	Security ID:		S-1-5-21-1470534791-136481979-151472823-1004
+	Account Name:		testuser1
+	Account Domain:		Annaya_Thammudu
+	Logon ID:		0x41F7E6D
+
+Process Information:
+	Process Name:		C:\Windows\System32\svchost.exe
+
+Network Information:
+	Workstation Name:	ANNAYA_THAMMUDU
+	Source Network Address:	127.0.0.1
+	Source Port:		0
+
+------------------------------------------------------------
+ANALYST NOTE:
+This successful logon occurred 21 seconds after the last failed attempt
+(14:42:11), immediately following the 9x Event 4625 failures documented in
+01_event_4625_failed_logons.txt. Logon Type 2 + Source 127.0.0.1 confirms
+this was a local, physical logon (not remote). This is the "initial access"
+point in the simulated attack chain.

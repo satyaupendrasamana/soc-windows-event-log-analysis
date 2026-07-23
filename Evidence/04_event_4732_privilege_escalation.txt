@@ -1,0 +1,36 @@
+EVENT ID 4732 — A member was added to a security-enabled local group
+Host: ANNAYA_THAMMUDU
+Time: 22-07-2026 15:34:18
+SEVERITY: CRITICAL
+
+------------------------------------------------------------
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          22-07-2026 15:34:18
+Event ID:      4732
+Task Category: Security Group Management
+Keywords:      Audit Success
+Computer:      Annaya_Thammudu
+
+Subject:
+	Security ID:		ANNAYA_THAMMUDU\shash
+	Account Name:		shash
+	Account Domain:		ANNAYA_THAMMUDU
+
+Member:
+	Security ID:		Annaya_Thammudu\backdoor_svc
+
+Group:
+	Security ID:		BUILTIN\Administrators
+	Group Name:		Administrators
+	Group Domain:		Builtin
+
+------------------------------------------------------------
+ANALYST NOTE (CRITICAL FINDING):
+This is the single most important event in the entire attack chain. The
+"backdoor_svc" account, created only ~3.5 minutes earlier (see
+03_event_4720_account_created.txt), was added to the built-in
+Administrators group (SID S-1-5-32-544). Before this event, the account
+was harmless. After this event, it has full administrative control over
+the host. If a SOC analyst were to catch and reverse only one event in
+this entire chain, this is the one that would prevent the most damage.

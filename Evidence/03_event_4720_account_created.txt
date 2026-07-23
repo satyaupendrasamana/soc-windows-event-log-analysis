@@ -1,0 +1,37 @@
+EVENT ID 4720 — A user account was created
+Host: ANNAYA_THAMMUDU
+Time: 22-07-2026 15:30:45
+
+------------------------------------------------------------
+Log Name:      Security
+Source:        Microsoft-Windows-Security-Auditing
+Date:          22-07-2026 15:30:45
+Event ID:      4720
+Task Category: User Account Management
+Keywords:      Audit Success
+Computer:      Annaya_Thammudu
+
+Subject:
+	Security ID:		ANNAYA_THAMMUDU\shash
+	Account Name:		shash
+	Account Domain:		ANNAYA_THAMMUDU
+
+New Account:
+	Security ID:		Annaya_Thammudu\backdoor_svc
+	Account Name:		backdoor_svc
+	Account Domain:		Annaya_Thammudu
+
+Attributes:
+	SAM Account Name:	backdoor_svc
+	Primary Group ID:	513
+	Password Last Set:	<never>
+	Account Expires:		<never>
+
+------------------------------------------------------------
+ANALYST NOTE:
+A new local account "backdoor_svc" was created, using a name deliberately
+disguised to resemble a legitimate service account. The "Subject" field
+shows "shash" — in this simulation, this account stands in for an
+attacker's already-compromised session (see README for context). At this
+stage, the new account holds standard (non-elevated) privileges and poses
+minimal risk on its own.
