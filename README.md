@@ -51,7 +51,7 @@ The full report follows the same structure as a real SOC L1 incident report — 
 windows-event-log-analysis/
     README.md
     docs/
-        Case-002-SOC-Windows-Event-Log.docx
+        Case-002-SOC-Windows-Event-Log.pdf
     evidence/
         01_event_4625_failed_logons.txt
         02_event_4624_successful_logon.txt
@@ -61,11 +61,15 @@ windows-event-log-analysis/
     screenshots/
         01_failed_logons_4625.png
         02_successful_logons_4624.png
+        03_New_Service_Installed_4697.png
+        04_New_User-Account_Created_4720.png
+        05_user-Added-to-Admin_Group_4732.png
     Documentation/
         Investigation-Methodology.md
         Event-ID-Reference.md
         Timeline.md
         Tools-Used.md
+        SOC-Analyst-Notebook.pdf
 ```
 
 **docs/** contains the full formal investigation report in Word format.  
